@@ -9,7 +9,12 @@
     <ul class="navbar-nav ml-auto">               
         <li class="nav-item">
             <a href="#" class="nav-link text-primary text-primary"><b>&nbsp;&nbsp;User : <?php echo $_SESSION["user_name"]; ?></b></a>
-        </li>          
+        </li> 
+        <li><div class="theme-switch-wrapper">
+                        <div class="theme-switch">
+                            <input type="checkbox" id="theme-toggle" />
+                            <label for="theme-toggle">Toggle Theme</label>
+                        </div></li>         
         <li class="nav-item">
             <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                 <i class="fas fa-expand-arrows-alt"></i>

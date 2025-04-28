@@ -3,7 +3,7 @@ $dev_data = array('id'=>'-1','firstname'=>'Developer','lastname'=>'','username'=
 //if(!defined('base_url')) define('base_url','http://winroengineering.lk/');
 if(!defined('base_url'))
 {
-    define('base_url','http://localhost/wms1760/ver47/');
+    define('base_url','http://localhost/work-order-m-sky/');
 }
 if(!defined('base_app'))
 {

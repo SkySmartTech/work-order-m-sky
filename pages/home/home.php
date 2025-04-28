@@ -53,161 +53,12 @@
                                 </div>
                             </div>                        
                         </div>                        
-                        <div class="border-top my-2" id="id_AndonDashboard_line"></div> 
-                        <!-- /.Mechanic Dashboard -------------->
-                        <div class="row pt-0" id="id_McDashboard">  
-                            <div class="col-lg-3 col-6">
-                                <!-- small box -->
-                                <div class="small-box bg-info">
-                                    <div class="inner text-center">
-                                        <h4 id="id_McDashboard_NoOfAsgnJob_value">-</h4>                                            
-                                        <h5>No of Assign Jobs</h5>                                            
-                                    </div>
-                                    <a href="#" class="small-box-footer" onclick="funNoOfAsgnJob()">More info <i class="fas fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                            <!-- small box -->
-                            <div class="col-lg-3 col-6">
-                                <div class="small-box bg-success">
-                                    <div class="inner text-center">
-                                        <h4 id="id_McDashboard_NoOfCmplt_value">-</h4>                                            
-                                        <h5>No of Completed Jobs</h5> 
-                                    </div>
-                                    <div class="icon">
-                                        <i class="ion ion-stats-bars"></i>
-                                    </div>
-                                    <a href="#" class="small-box-footer" onclick="funNoOfCmpltJob()">More info <i class="fas fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                            <!-- ./col -->
-                            <div class="col-lg-3 col-6">
-                                <!-- small box -->
-                                <div class="small-box bg-warning">
-                                    <div class="inner text-center">
-                                        <h4 id="id_McDashboard_TotChkTime_value">-</h4>                                            
-                                        <h5>Total Checking Time for Shift</h5> 
-                                    </div>
-                                    <div class="icon">
-                                        <i class="ion ion-person-add"></i>
-                                    </div>
-                                    <a href="../../pages/mechanic_performance/" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                            <!-- ./col -->
-                            <div class="col-lg-3 col-6">
-                              <!-- small box -->
-                                <div class="small-box bg-danger">
-                                    <div class="inner text-center">
-                                         <h4 id="id_McDashboard_CheckInWoNo_value">-</h4>                                            
-                                        <h5>Current CheckIn Work Order</h5> 
-                                    </div>
-                                    <div class="icon">
-                                        <i class="ion ion-pie-graph"></i>
-                                    </div>
-                                    <a href="#" class="small-box-footer" onclick="funCurrCheckInWo()">More info <i class="fas fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>                     
-                        </div>                         
-                        <div class="border-top my-0" id="id_McDashboard_line"></div> 
-                        <div class="row my-1" id="id_homeDetails">   
-                            <div class="col-md-3">                            
-                                <!-- <p class="text-center"><strong>Work Order Details</strong></p> -->
-                                <p class="text-center"><strong>Last 7 Day Summary</strong></p>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td style="width:70%;">No Of Breakdown</td>
-                                            <td style="width:5%;"></td>            
-                                            <td style="width:25%;" id="id_Home_NoOfTotBreakDown_30day">: -</td>            
-                                        </tr>
-                                        <tr>
-                                            <td style="width:70%;">Total Breakdown Duration</td>
-                                            <td style="width:5%;"></td>   
-                                            <td style="width:25%;" id="id_Home_TotBreakDownDuration_30day">: - Min</td>   
-                                        </tr> 
-                                        <tr>
-                                            <td style="width:70%;">Average Breakdown Time</td>
-                                            <td style="width:5%;"></td>   
-                                            <td style="width:25%;" id="id_Home_AveBreakDownTime_30day">: - Min</td>   
-                                        </tr> 
-                                        <tr>
-                                            <td style="width:70%;">Total Attending Delay</td>
-                                            <td style="width:5%;"></td>   
-                                            <td style="width:25%;" id="id_Home_TotAttnDelay_30day">: - Min</td>   
-                                        </tr> 
-                                        <tr>
-                                            <td style="width:70%;">Average Attending Time</td>
-                                            <td style="width:5%;"></td>   
-                                            <td style="width:25%;" id="id_Home_AveAttnTime_30day">: - Min</td>   
-                                        </tr> 
-                                        <tr>
-                                            <td style="width:70%;">Total Work Orders Placed</td>
-                                            <td style="width:5%;"></td>   
-                                            <td style="width:25%;" id="id_Home_TotWoPlaced_30day">: - </td>   
-                                        </tr> 
-                                        <tr>
-                                            <td style="width:70%;">Completed Work Orders</td>
-                                            <td style="width:5%;"></td>   
-                                            <td style="width:25%;" id="id_Home_TotCmpltdWo_30day">: - </td>   
-                                        </tr> 
-                                    </tbody>               
-                                </table>                                                                                
-                            </div>  
-                            <div class="col-md-3">                            
-                                <!-- <p class="text-center"><strong>Work Order Details</strong></p> -->
-                                <p class="text-center"><strong>Today Summary</strong></p>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td style="width:70%;">No Of Breakdown</td>
-                                            <td style="width:5%;"></td>            
-                                            <td style="width:25%;" id="id_Home_NoOfTotBreakDown_Today">: -</td>            
-                                        </tr>
-                                        <tr>
-                                            <td style="width:70%;">Total Breakdown Duration</td>
-                                            <td style="width:5%;"></td>   
-                                            <td style="width:25%;" id="id_Home_TotBreakDownDuration_Today">: - Min</td>   
-                                        </tr> 
-                                        <tr>
-                                            <td style="width:70%;">Average Breakdown Time</td>
-                                            <td style="width:5%;"></td>   
-                                            <td style="width:25%;" id="id_Home_AveBreakDownTime_Today">: - Min</td>   
-                                        </tr> 
-                                        <tr>
-                                            <td style="width:70%;">Total Attending Delay</td>
-                                            <td style="width:5%;"></td>   
-                                            <td style="width:25%;" id="id_Home_TotAttnDelay_Today">: - Min</td>   
-                                        </tr> 
-                                        <tr>
-                                            <td style="width:70%;">Average Attending Time</td>
-                                            <td style="width:5%;"></td>   
-                                            <td style="width:25%;" id="id_Home_AveAttnTime_Today">: - Min</td>   
-                                        </tr> 
-                                        <tr>
-                                            <td style="width:70%;">Total Work Orders Placed</td>
-                                            <td style="width:5%;"></td>   
-                                            <td style="width:25%;" id="id_Home_TotWoPlaced_Today">: - </td>   
-                                        </tr> 
-                                        <tr>
-                                            <td style="width:70%;">Completed Work Orders</td>
-                                            <td style="width:5%;"></td>   
-                                            <td style="width:25%;" id="id_Home_TotCmpltdWo_Today">: - </td>   
-                                        </tr> 
-                                    </tbody>               
-                                </table>                                                                                
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-md-6">
-                                
-                                <div class="card card-success">                                    
-                                    <div class="card-body" id="Id_DivBarChart_1">                                    
-                                    </div>
-                                    <!-- /.card-body -->
-                                </div>
-                            </div>
-                        </div>
+                       
+                        
+                        
                     </div>                        
-                    <div class="border-top my-1" id="id_homeDetails_line"></div>                        
+                    <div class="border-top my-1" id="id_homeDetails_line"></div>     
+                                       
                     <div class="row">  
                         <div class="col-lg-6">
                             <p class="text-center"><strong>List of all work orders</strong></p>                        
@@ -233,14 +84,12 @@
                                 <thead class="bg-info">
                                     <tr>
                                         <th>#</th>
-                                        <th>WO</th>
+                                        <th>Department</th>
                                         <th>Time</th>                                        
-                                        <th>Department</th>    
-                                        <th>By</th>
-                                        <th>Category</th>
-                                        <th>Description</th>                                                  
+                                        <th>Category</th>    
+                                        <th>Sub Category</th>
+                                        <th>Details</th>                                                  
                                         <th>Status</th>
-                                        <th><center>ReOpen</center></th>
                                     </tr>
                                 </thead>
                                 <tbody>                                       
@@ -380,20 +229,7 @@
             icons: { time: 'far fa-clock' } 
         });
         //------------ Hide home Details, When MC Login -----------------------
-        if(roll_other_ary.includes("90012"))
-        {
-            //alert("90012 Available");
-            //var hiddenDiv = document.getElementById('id_homeDetails');
-            //hiddenDiv.style.display = 'none';
-            document.getElementById('id_homeDetails').style.display         = 'none';
-            document.getElementById('id_homeDetails_line').style.display    = 'none';
-            document.getElementById('id_AndonDashboard_line').style.display = 'none';
-        }
-        else 
-        {
-            //alert("90012 not Available");
-        }
-        //
+        
         //----------------------------------------------------------------------
         //Initialize Select2 Elements
         $('.select2').select2({ closeOnSelect: true});
@@ -409,14 +245,13 @@
         $("#example1").DataTable({
             "columnDefs": [
                 { "width": "2%", "targets": 0 }, // No
-                { "width": "9%", "targets": 1 }, // WO
-                { "width": "10%", "targets": 2 }, // Time
-                { "width": "10%", "targets": 3 }, // Department
-                { "width": "12%", "targets": 4 }, // By 
-                { "width": "10%", "targets": 5 }, // Category
-                { "width": "33%", "targets": 6 }, // Description (set width to 20%)
-                { "width": "7%", "targets": 7 }, // Status               
-                { "width": "7%", "targets": 8 }   // ReOpen
+                { "width": "20%", "targets": 1 }, // Department
+                { "width": "20%", "targets": 2 }, // Time
+                { "width": "20%", "targets": 3 }, // Category
+                { "width": "20%", "targets": 4 }, // Sub Category
+                { "width": "20%", "targets": 5 }, // Details
+                { "width": "8%", "targets": 6 }, // Status 
+
             ],
             "paging": false,
             "responsive": true, 
@@ -439,13 +274,13 @@
         
         //--- Load Tables --------------------------------------   
         funLoad_WoTableFilterDepData();
-        funRefresh_DowntimeDashboard();
-        funRefresh_MechanicDashboard();        
-        funRefresh_Last30DaySummary();
-        funRefresh_TodaySummary();
-        funRefresh_Chart();
+        //funRefresh_DowntimeDashboard();
+        //funRefresh_MechanicDashboard();        
+        //funRefresh_Last30DaySummary();
+        //funRefresh_TodaySummary();
+        //funRefresh_Chart();
         //funRefresh_WoTable();
-        MQTTconnect();
+        
         funAutoVerifyWo();
     }); 
     $('#myCustomSearchBox').keyup(function() 
@@ -519,246 +354,15 @@
     // Update the count down every 1 second
     var x = setInterval(function() 
     {
-        //alert("Timer running..");
-        //-------------- Show Time -------------------------------------------------
-        //var today = new Date();
-        //var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        //var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        //document.getElementById("id_datetime").innerHTML = date+' '+time;
-        //--------------- Update Data ----------------------------------------------
-        //------------ Refresh Home Page Parts ----------------------
-        if(roll_other_ary.includes("90013"))
-        {
-            //alert("Location : 90013");  
-            if(roll_other_ary.includes("9001311"))
-            {
-                //alert("Location : 9001311"); 
-                funRefresh_DowntimeDashboard();
-            }
-            if(roll_other_ary.includes("9001312"))
-            {
-                //alert("Location : 9001312"); 
-                funRefresh_MechanicDashboard();  
-            }
-            if(roll_other_ary.includes("9001313"))
-            {
-                //alert("Location : 9001313"); 
-                funRefresh_Last30DaySummary();
-            }
-            if(roll_other_ary.includes("9001314"))
-            {
-                //alert("Location : 9001314"); 
-                funRefresh_TodaySummary();
-            }
-            if(roll_other_ary.includes("9001315"))
-            {
-                //alert("Location : 9001315"); 
-                funRefresh_Chart();
-            }
-            if(roll_other_ary.includes("9001316"))
-            {
-                //alert("Location : 9001316"); 
-                funRefresh_WoTable();
-            }
-        }     
-
-        //alert(JS_SessionArry[0].CurrentUserType);  
-        //if(JS_SessionArry[0].CurrentUserType === "productionuser")   
-        //{
-        //    funRefresh_WoTable();
-        //}
+       
+       
+        funRefresh_WoTable();
+        
         
     }, 5000); 
     
-    //function showAlert(button)
-    //{
-    //    alert("Test");
-    //}
-     //-------------------- Refresh Home Chart -------------------
-    function funRefresh_Chart() 
-    {
-        let intDebugEnable = 0;        
-        if(intDebugEnable === 1)    alert("funRefresh_Chart");     
-        //const DataAry = [];
-        //-------------- Update Home page Chart ---------------------------------------------
-        var vblSendPara =  "1234"; 
-        $.post('class/getData_HomeChart.php', { userpara: vblSendPara }, function(json_data2) 
-        {
-            if(intDebugEnable === 1)    alert("json_data2" + json_data2);           
-            var res = $.parseJSON(json_data2);        
-            //const varDate = ["08/12/2023", "09/12/2023", "10/12/2023","12/12/2023", "14/12/2023", "16/12/2023","17/12/2023", "19/12/2023", "20/12/2023"];
-            //const varWoCount = [10,18,11,20,23,19,16,21,11];  
-            
-            var varDate           = new Array();
-            var varWoCount  = new Array();
-            
-            varDate      = res.Date_Ary;          
-            varWoCount   = res.TotPlacedWorkOrders_Ary;              
-            //-------------------------------------------------------------
-            //- BAR CHART:1 - Line Wise Downtime Summary  
-            //-------------------------------------------------------------     
-            document.getElementById("Id_DivBarChart_1").innerHTML = '&nbsp;';
-            document.getElementById("Id_DivBarChart_1").innerHTML = '<canvas id="id_barChart_1" style="height: 200px; max-width: 120%;"></canvas>';
-            var barChartCanvas = document.getElementById('id_barChart_1').getContext('2d');
-
-            var barChart1_Data = {
-                labels: res.Date_Ary,
-                datasets: [
-                {
-                    label: 'Placed Work Orders',
-                    backgroundColor: 'rgba(60,141,188,0.9)',
-                    borderColor: 'rgba(60,141,188,0.8)',
-                    pointRadius: false,
-                    pointColor: '#3b8bba',
-                    pointStrokeColor: 'rgba(60,141,188,1)',
-                    pointHighlightFill: '#fff',
-                    pointHighlightStroke: 'rgba(60,141,188,1)',
-                    data: res.TotPlacedWorkOrders_Ary
-                }, 
-                {
-                    label: 'Completed Work Orders',
-                    backgroundColor: 'rgba(210, 44, 44, 0.9)',
-                    borderColor: 'rgba(210, 44, 44, 0.8)',
-                    pointRadius: false,
-                    pointColor: '#3b8bba',
-                    pointStrokeColor: 'rgba(210, 44, 44, 1)',
-                    pointHighlightFill: '#fff',
-                    pointHighlightStroke: 'rgba(210, 44, 44, 1)',
-                    data: res.CompletedWorkOrders_Ary
-                }, 
-                {
-                    label: 'Placed Breakdown',
-                    backgroundColor: 'rgba(255, 153, 0, 0.9)',
-                    borderColor: 'rgba(255, 153, 0, 0.8)',
-                    pointRadius: false,
-                    pointColor: '#3b8bba',
-                    pointStrokeColor: 'rgba(255, 153, 0, 1)',
-                    pointHighlightFill: '#fff',
-                    pointHighlightStroke: 'rgba(255, 153, 0, 1)',
-                    data: res.TotPlacedBreakDown_Ary
-                },                 
-                {
-                    label: 'Completed Breakdown',
-                    backgroundColor: 'rgba(0, 128, 0, 0.9)', // Adjust color as needed
-                    borderColor: 'rgba(0, 128, 0, 0.8)', // Adjust color as needed
-                    pointRadius: false,
-                    pointColor: '#3b8bba',
-                    pointStrokeColor: 'rgba(0, 128, 0, 1)', // Adjust color as needed
-                    pointHighlightFill: '#fff',
-                    pointHighlightStroke: 'rgba(0, 128, 0, 1)', // Adjust color as needed
-                    data: res.CompletedBreakDown_Ary
-                },                 
-                {
-                    label: 'Total Breakdown Duration',
-                    backgroundColor: 'rgba(128, 0, 128, 0.9)', // Adjust color as needed
-                    borderColor: 'rgba(128, 0, 128, 0.8)', // Adjust color as needed
-                    pointRadius: false,
-                    pointColor: '#3b8bba',
-                    pointStrokeColor: 'rgba(128, 0, 128, 1)', // Adjust color as needed
-                    pointHighlightFill: '#fff',
-                    pointHighlightStroke: 'rgba(128, 0, 128, 1)', // Adjust color as needed
-                    data: res.TotalBreakDownDuration_Ary
-                }
-             
-                ]    
-            };
-
-            var barChartOptions = {
-                responsive: true,
-                maintainAspectRatio: false,
-                datasetFill: false,
-                chartArea: { backgroundColor: 'rgba(255, 0, 0, 0.1)' }, // Change the background color of the chart area
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            fontSize: 8 // Adjust the font size for y-axis ticks
-                        }
-                    }],
-                    xAxes: [{
-                        ticks: {
-                            fontSize: 8 // Adjust the font size for x-axis ticks
-                        }
-                    }]
-                }    
-            };
-
-            new Chart(barChartCanvas, {
-                type: 'line',
-                data: barChart1_Data,
-                options: barChartOptions
-            });
-        });
-    }
-    //-------------------- Refresh Home Downtime Summary -----------------
-    function funRefresh_Last30DaySummary() 
-    {
-        //alert("Refresh Downtime Summary");
-        //var formattedTime; 
-        const DataAry = []; 
-        //----------------- Home Downtime Summary-----------------------------------        
-        DataAry[0] = "funGet_Summary_Last30";        // Function Name    
-        DataAry[1] = "NA";
-        //alert(DataAry);    
-        $.post('class/getData_HomeSummary.php', { userpara: DataAry }, function(json_data2) 
-        {
-            //alert(json_data2); 
-            var res = $.parseJSON(json_data2);   
-            
-            if(res.Status_Ary[0] === "true")
-            {
-                document.getElementById("id_Home_NoOfTotBreakDown_30day").innerHTML     = " :   " + res.Data_Ary[0];
-                document.getElementById("id_Home_TotBreakDownDuration_30day").innerHTML = " :   " + convertMinutesToTime(res.Data_Ary[1]); 
-                document.getElementById("id_Home_AveBreakDownTime_30day").innerHTML     = " :   " + convertMinutesToTime((parseInt(res.Data_Ary[1])/parseInt(res.Data_Ary[0])).toFixed(0));
-                document.getElementById("id_Home_TotAttnDelay_30day").innerHTML         = " :   " + convertMinutesToTime(res.Data_Ary[2]);
-                document.getElementById("id_Home_AveAttnTime_30day").innerHTML          = " :   " + convertMinutesToTime((parseInt(res.Data_Ary[2])/parseInt(res.Data_Ary[0])).toFixed(0));
-                document.getElementById("id_Home_TotWoPlaced_30day").innerHTML          = " :   " + res.Data_Ary[3];
-                document.getElementById("id_Home_TotCmpltdWo_30day").innerHTML          = " :   " + res.Data_Ary[4];
-            }                  
-        });
-    }
-    //-------------------- Refresh Home Work Order Summary -----------------
-    function funRefresh_TodaySummary() 
-    {
-        const DataAry = []; 
-        //----------------- Home Downtime Summary-----------------------------------        
-        DataAry[0] = "funGet_Summary_Today";        // Function Name    
-        DataAry[1] = "NA";
-        //alert(DataAry);    
-        $.post('class/getData_HomeSummary.php', { userpara: DataAry }, function(json_data2) 
-        {
-            //alert(json_data2); 
-            var res = $.parseJSON(json_data2);   
-            if(res.Status_Ary[0] === "true")
-            {
-                document.getElementById("id_Home_NoOfTotBreakDown_Today").innerHTML     = " :   " + res.Data_Ary[0];
-                document.getElementById("id_Home_TotBreakDownDuration_Today").innerHTML = " :   " + convertMinutesToTime(res.Data_Ary[1]);
-                if(parseInt(res.Data_Ary[0]) !== 0)
-                {
-                    document.getElementById("id_Home_AveBreakDownTime_Today").innerHTML     = " :   " + convertMinutesToTime((parseInt(res.Data_Ary[1])/parseInt(res.Data_Ary[0])).toFixed(0));
-                    document.getElementById("id_Home_TotAttnDelay_Today").innerHTML         = " :   " + convertMinutesToTime(res.Data_Ary[2]);
-                    document.getElementById("id_Home_AveAttnTime_Today").innerHTML          = " :   " + convertMinutesToTime((parseInt(res.Data_Ary[2])/parseInt(res.Data_Ary[0])).toFixed(0));
-                
-                }
-               else
-               {
-                    document.getElementById("id_Home_AveBreakDownTime_Today").innerHTML  = " : - ";
-                    document.getElementById("id_Home_TotAttnDelay_Today").innerHTML      = " :   " + convertMinutesToTime(res.Data_Ary[2]);
-                    document.getElementById("id_Home_AveAttnTime_Today").innerHTML       = " : - ";
-               }
-                
-                document.getElementById("id_Home_TotWoPlaced_Today").innerHTML          = " :   " + res.Data_Ary[3];
-                if(res.Data_Ary[4] !== null)
-                {
-                    document.getElementById("id_Home_TotCmpltdWo_Today").innerHTML          = " :   " + res.Data_Ary[4];
-                }
-                else
-                {
-                    document.getElementById("id_Home_TotCmpltdWo_Today").innerHTML          = " : - ";
-                }
-                
-            }                     
-        });  
-    }
+    
+  
     //-------------------- Refresh Home Table -------------------
     function funRefresh_WoTable() 
     {
@@ -880,11 +484,11 @@
     //----------- fun Refresh All Areas ---------------------------------
     function funRefresh_HomePage()
     {
-        funRefresh_DowntimeDashboard();
-        funRefresh_MechanicDashboard();        
-        funRefresh_Last30DaySummary();
-        funRefresh_TodaySummary();
-        funRefresh_Chart();
+        //funRefresh_DowntimeDashboard();
+        //funRefresh_MechanicDashboard();        
+        //funRefresh_Last30DaySummary();
+        //funRefresh_TodaySummary();
+        //funRefresh_Chart();
         funRefresh_WoTable();
     }
     //-------------------- Model : Edit Update Clicked -------------------------
@@ -933,116 +537,8 @@
         funRefresh_WoTable();
         
     }
-    function onMqttConnect() 
-    {
-        // Once a connection has been made, make a subscription and send a message.
-        console.log("Connected ");
-        //mqtt.subscribe("sensor1");
-        //message = new Paho.MQTT.Message("{\"MacAdd\":\"E8:9F:6D:92:D3:0D\",\"MsgType\":\"PwrOn\",\"IPAdd\":\"192.168.1.105\",\"UserName\":\"Kelum\",\"ModelNo\":\"DCS-1507A_UI\",\"ManufacDate\":\"29/04/2022\",\"EventNo\":\"1\",\"PwrOnCount\":\"0\",\"RunTime\":\"0\",\"FrameworkVer\":\"DCS-1507A_Frm3\",\"SoftVer\":\"8.0\",\"SigStrength\":\"-36\"}");
-        //message = new Paho.MQTT.Message("{\"MacAdd\":\"E8:9F:6D:92:D3:0D\",\"MsgType\":\"PwrOn\"}");
-        message = new Paho.MQTT.Message("{\"MacAdd\":\"E8:9F:6D:92:D3:0D\",\"MsgType\":\"PwrOn\",\"IPAdd\":\"192.168.1.105\",\"UserName\":\"Kelum\",\"ModelNo\":\"DCS-1507A_UI\",\"ManufacDate\":\"29/04/2022\",\"EventNo\":\"1\",\"PwrOnCount\":\"0\",\"RunTime\":\"0\",\"FrameworkVer\":\"DCS-1507A_Frm3\",\"SoftVer\":\"8.0\",\"SigStrength\":\"-36\"}");
-        message.destinationName = strPublishTopic;
-        mqtt.send(message);
-        intMqttState = 1;
-    }
-    function MQTTconnect()
-    {
-        console.log("connecting to "+ host +" "+ port);
-        var x=Math.floor(Math.random() * 10000); 
-        var cname="orderform-"+x;
-        mqtt = new Paho.MQTT.Client(host,port,cname);
-        //document.write("connecting to "+ host);
-        var options = {useSSL: true, timeout: 3,onSuccess: onMqttConnect};  		 
-        mqtt.connect(options); //connect
-    }
-    //--------------------- Downtime Dashboard (100-11) ----------------------   
-    function funRefresh_DowntimeDashboard()
-    {
-        //alert("Update Home Downtime Dashboard");
-        if(!roll_areas_ary.includes('10011'))
-        {
-            //alert("Remove Andon Dashboard");
-        }
-        else
-        {
-            //alert("true");              
-            var RunDT_IDAry           = new Array();
-            var RunDT_MachineNoAry    = new Array();
-            var RunDT_DowntimeAry     = new Array();
-
-            var AttnDT_IDAry          = new Array();
-            var AttnDT_MachineNoAry   = new Array();
-            var AttnDT_DowntimeAry    = new Array();
-            var RepDT_DowntimeAry    = new Array();
-            var TotDT_DowntimeAry    = new Array();
-
-            //let intRunDtRecCount = 0;
-            var strText = "";
-            //-------------- Update Home page Running Downtime Dashboard ---------------------------------------------
-
-            var vblSendPara =  "1234"; 
-            $.post('class/getData_HomeDtDashboard.php', { userpara: vblSendPara }, function(json_data2) 
-            {
-                //alert(json_data2);  
-                var res = $.parseJSON(json_data2);
-                //alert(json_data2); 
-
-                RunDT_IDAry            = res.RunDT_ID_Ary;   
-                RunDT_MachineNoAry     = res.RunDT_MachineNo_Ary;
-                RunDT_DowntimeAry      = res.RunDT_RunDowntime_Ary;
-
-                AttnDT_IDAry           = res.AttnDT_ID_Ary;   
-                AttnDT_MachineNoAry    = res.AttnDT_MachineNo_Ary;
-                AttnDT_DowntimeAry     = res.AttnDT_Downtime_Ary;
-                RepDT_DowntimeAry      = res.RepDT_Downtime_Ary;
-                TotDT_DowntimeAry      = res.TotDT_Downtime_Ary;
-
-                let intRunDtRecCount = RunDT_IDAry.length; 
-                let intAttnDtRecCount = AttnDT_IDAry.length; 
-                //------------------- New Dashboard ------------------------
-                  // Select the element by its ID
-                var dashboardElement = document.getElementById('id_AndonDashboard');
-                // Add the style attributes
-                dashboardElement.style.width = "100%";
-                dashboardElement.style.height = "120px";
-                dashboardElement.style.overflow = "hidden";
-                dashboardElement.style.whiteSpace = "nowrap";
-                                
-                //const cardContainer = document.getElementById('id_AndonDashboard');
-                const cardContainer_head = document.getElementById('id_AndonDashboard_head');
-                // Append cards dynamically (replace this with your actual card data)
-                cardContainer_head.innerHTML ="<div>" +
-                                   "<div style=\"width: 120px; height: 110px \">" +
-                                       "<center><h6 id=\"id_mcnumber_"     + i + "\">" + "." + "</h6></center>" +
-                                       "<center><h6 id=\"id_mcreptime_"    + i + "\">" + "Repair Time"  + "</h6></center>" +
-                                       "<center><h6 id=\"id_mcattntime_"   + i + "\">" + "Attend Time"  + "</h6></center>" +
-                                       "<center><h6 id=\"id_mcdowntime_"   + i + "\">" + "Downtime"  + "</h6></center>" +
-                                   "</div></div>";
-                //alert("intRunDtRecCount" + intRunDtRecCount);
-                //alert("intAttnDtRecCount" + intAttnDtRecCount);                
-                cardContainer.innerHTML = "";                  
-                for (i = 1; i < intRunDtRecCount; i++) 
-                {
-                    cardContainer.innerHTML += "<div style='width: 150px;height: 110px;display: inline-block; margin-right: 10px; background-color: red; border: 1px solid #ccc;'>" + 
-                        "<marquee behavior='scroll' direction='left' scrollamount='3'><center><h6 id=\"id_mcnumber_" + i + "\">" + RunDT_MachineNoAry[i] + "</h6></center></marquee>"  +
-                        "<center><h6 id=\"id_mcreptime_"    + i + "\">" + "-"  + "</h6></center>" +
-                        "<center><h6 id=\"id_mcattntime_"   + i + "\">" + "-"  + "</h6></center>" +
-                        "<center><h6 id=\"id_mcdowntime_"   + i + "\">" + RunDT_DowntimeAry[i]  + "</h6></center>" +
-                        "</div>";
-                }
-                for (i = 1; i < intAttnDtRecCount; i++) 
-                {
-                    cardContainer.innerHTML += "<div style='width: 150px;height: 110px;display: inline-block; margin-right: 10px; background-color: lightgreen; border: 1px solid #ccc;'>" + 
-                        "<marquee behavior='scroll' direction='left' scrollamount='3'><center><h6 id=\"id_mcnumber_" + i + "\">" + AttnDT_MachineNoAry[i] + "</h6></center></marquee>"  +
-                        "<center><h6 id=\"id_mcreptime_"    + i + "\">" + RepDT_DowntimeAry[i]  + "</h6></center>" +
-                        "<center><h6 id=\"id_mcattntime_"   + i + "\">" + AttnDT_DowntimeAry[i]  + "</h6></center>" +
-                        "<center><h6 id=\"id_mcdowntime_"   + i + "\">" + TotDT_DowntimeAry[i]  + "</h6></center>" +
-                        "</div>";
-                }
-                //alert("Update DT Dashboard Finised");
-            });
-        }
-    }
+   
+    
     function funHome_SelDepartmentFilter()
     {
         //alert("Department Filter...");
@@ -1196,6 +692,7 @@
         }
 
     }
+
     //--------------- Auto Veryfy after 24 Hours of closed WO ------------------------
     function funAutoVerifyWo()
     {
@@ -1216,6 +713,7 @@
             if(intDebugEnable === 1)    alert(res.Status_Ary[0]); 
         }); 
     }
+
     //--------------- When MC click funNoOfAsgnJob ------------------------
     function funNoOfAsgnJob()
     {
