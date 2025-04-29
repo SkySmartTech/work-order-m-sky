@@ -84,6 +84,7 @@
                                 <thead class="bg-info">
                                     <tr>
                                         <th>#</th>
+                                        <th>Wo No</th>
                                         <th>Department</th>
                                         <th>Time</th>                                        
                                         <th>Category</th>    
@@ -98,18 +99,18 @@
                         </section>
                     </div>
                     <div class="border-top my-1"></div>
-                    <div class="row"> 
-                        <div class="col-lg-7 mt-1">
-                            <button type="button" class="btn btn-primary" onclick="funModCreateBreakDownClicked()" style="width:32.5%;" <?php echo (in_array('10019', $roll_areas) ? '' : 'disabled'); ?>><i class="fas fa-exclamation-triangle"></i> Break Down</button>
-                            <button type="button" class="btn btn-primary" onclick="funModelPlannedMaintenanceClicked()" style="width:32.5%;" <?php echo (in_array('10020', $roll_areas) ? '' : 'disabled'); ?>><i class="far fa-bell"></i> Planned Maintenance</button>
-                            <button type="button" class="btn btn-primary" onclick="funModRedTagCreateClicked()" style="width:32.5%;" <?php echo (in_array('10021', $roll_areas) ? '' : 'disabled'); ?>><i class="fas fa-bullhorn"></i> Red Tag</button>
-                    
-                        </div>
-                        <div class="col-lg-5 mt-1">
-                            <button type="button" class="btn btn-primary" onclick="funModBuildMntCreateClicked()" style="width:48%;" <?php echo (in_array('10022', $roll_areas) ? '' : 'disabled'); ?>><i class="fas fa-tools"></i> Building Maintenance</button>
-                            <button type="button" class="btn btn-primary" onclick="funModOtherProjectCreateClicked()" style="width:48%;" <?php echo (in_array('10023', $roll_areas) ? '' : 'disabled'); ?>><i class="fas fa-recycle"></i> Other</button>
-                        </div>                        
+                    <!-- Action Buttons -->
+                <div class="row">
+                    <div class="col-12 text-center mt-4">
+                        <button type="button" class="btn btn-outline-danger mx-2 rounded-pill shadow-sm px-4" onclick="funModelPlannedMaintenanceClicked()" style="min-width: 180px;">
+                            <i class="far fa-bell"></i> Urgent
+                        </button>
+                        <button type="button" class="btn btn-outline-warning mx-2 rounded-pill shadow-sm px-4" onclick="funModRedTagCreateClicked()" style="min-width: 180px;">
+                            <i class="fas fa-bullhorn"></i> Normal
+                        </button>
                     </div>
+                </div>
+
                     
                     <!-- /.row (main row) -->
                 </div><!-- /.container-fluid -->
@@ -218,6 +219,7 @@
     // JavaScript code for automatic scrolling of the dashboard
     const scrollSpeed = 30; // Adjust scrolling speed as needed
     const cardContainer = document.getElementById('id_AndonDashboard');
+    document.getElementById("userDepartmentTitle").innerText = "User's Department : " + JS_SessionArry[0].CurrentUserDepartment;
 
     $(function () 
     {        
@@ -244,13 +246,13 @@
 
         $("#example1").DataTable({
             "columnDefs": [
-                { "width": "2%", "targets": 0 }, // No
-                { "width": "20%", "targets": 1 }, // Department
-                { "width": "20%", "targets": 2 }, // Time
-                { "width": "20%", "targets": 3 }, // Category
-                { "width": "20%", "targets": 4 }, // Sub Category
-                { "width": "20%", "targets": 5 }, // Details
-                { "width": "8%", "targets": 6 }, // Status 
+                { "width": "2%",  "targets": 0 }, // No
+                { "width": "8%", "targets": 1 }, // Department
+                { "width": "10%", "targets": 2 }, // Time
+                { "width": "15%", "targets": 3 }, // Category
+                { "width": "15%", "targets": 4 }, // Sub Category
+                { "width": "25%", "targets": 5 }, // Details
+                { "width": "20%",  "targets": 6 }  // Status
 
             ],
             "paging": false,
@@ -351,40 +353,41 @@
     //    var table = $('#example1').DataTable();
     //    alert(table.rows('.selected').data().length + ' row(s) selected');
     //});
-    // Update the count down every 1 second
-    var x = setInterval(function() 
-    {
-       
-       
-        funRefresh_WoTable();
+
+    // Call every 5 seconds
+    var x = setInterval(function() {
+        var dep_value = document.getElementById("id_funHome_SelDepartmentFilter").value;
+
+        // If same as user's department, call without parameter
+        if (dep_value === JS_SessionArry[0].CurrentUserDepartment) {
+            funRefresh_WoTable(); // default to current user's department
+        } else {
+            funRefresh_WoTable(dep_value); // use selected department
+        }
+    }, 5000);
         
         
-    }, 5000); 
-    
-    
   
     //-------------------- Refresh Home Table -------------------
-    function funRefresh_WoTable() 
+    function funRefresh_WoTable(dep_value = JS_SessionArry[0].CurrentUserDepartment)
     {
-        let intDebugEnable = 0;        
-        if(intDebugEnable === 1)    alert("funRefresh_WoTable");
-        
-        //alert("Refresh page..");      
-        const DataAry = []; 
-        DataAry[0] = "funGetFilteredData";        // Function Name    
-        //DataAry[1] = "1";
+        let intDebugEnable = 0;
+        if (intDebugEnable === 1) alert("funRefresh_WoTable for department: " + dep_value);
+
+        const DataAry = [];
+        DataAry[0] = "funGetFilteredData";
         DataAry[2] = "WoDepartment";
-        DataAry[3] = JS_SessionArry[0].CurrentUserDepartment;       //"pneumatic";  
-        //alert("Current User Dep :" + DataAry[3]);
-        document.getElementById("id_funHome_SelDepartmentFilter").value = DataAry[3];
-        if(DataAry[3] === "Engineering")
-        {
-            DataAry[1] = "0";       // All data
+        DataAry[3] = dep_value;
+
+        document.getElementById("id_funHome_SelDepartmentFilter").value = dep_value;
+
+        // Decide whether to fetch all or filtered data
+        if (dep_value === "All") {
+            DataAry[1] = "0"; // All data
+        } else {
+            DataAry[1] = "1"; // Filtered data
         }
-        else
-        {
-            DataAry[1] = "1";       // Filtered Data
-        }
+
         if(intDebugEnable === 1)    alert("DataAry : " + DataAry);
         //-------------- Update Home page WO Table ---------------------------------------------
         $.post('class/getData_HomeTable.php', { userpara: DataAry }, function(json_data2) 
@@ -394,7 +397,7 @@
             if(res.Status_Ary[0] === "true")
             {
                 let intRecCount     = res.Data_Ary.length; 
-                let strWoDepartment = "";
+                
                 //alert(intRecCount);     
                 dtbl1.clear().draw();            
                 for(i=0; i<intRecCount; i++)
@@ -404,61 +407,19 @@
                     let strWoCategory   = res.Data_Ary[i][4];
                     let strDescription  = "";
                     
-                    if(strWoCategory === "BreakDown")
-                    {
-                        //alert("Breakdown");
-                        strDescription = res.Data_Ary[i][6] + " (" +res.Data_Ary[i][7] + ")";
-                    }
-                    else if(strWoCategory === "PlanMaintenance")
-                    {
-                        //alert("PlanMaintenance");
-                        strDescription = res.Data_Ary[i][6] + " (" +res.Data_Ary[i][9] + ")";
-                        //strDescription = res.Data_Ary[i][9];
-                    }  
-                    else if(strWoCategory === "RedTag")
-                    {
-                        //alert("RedTag");
-                        strDescription = res.Data_Ary[i][6] + " (" +res.Data_Ary[i][9] + ")";
-                        //strDescription = res.Data_Ary[i][9];
-                    }  
-                    else if(strWoCategory === "BuildingMaintenance")
-                    {
-                        //alert("BuildingMaintenance");
-                        strDescription = res.Data_Ary[i][9];
-                    }  
-                    else if(strWoCategory === "OtherProject")
-                    {
-                        //alert("OtherProject");
-                        strDescription = res.Data_Ary[i][5] + " (" +res.Data_Ary[i][9] + ")";
-                    }
-                    else        // Error Wo CAtegory not found
-                    {
-                        alert("Wo Category not found");
-                        writeToLogFile("Home Table: Wo Category not found");
-                    }  
-                    //------------------ Chat and Department ----------------------
-                    //if(intDebugEnable === 1)    alert("res.Data_Ary[i][13] : " + res.Data_Ary[i][13]);
-                    if(Number(res.Data_Ary[i][13]) === 0) 
-                    {
-                        strWoDepartment = res.Data_Ary[i][2];
-                    }
-                    else 
-                    {
-                        strWoDepartment = '<i class="far fa-envelope"></i> ' + res.Data_Ary[i][2];
-                    }
+
                     //alert(strDescription); 
                     //dtbl1.row.add([IDAry[i], WorkOrderNoAry[i], WoDepartmentAry[i] , CreatedDateTimeAry[i], WorkOrderCategoryAry[i], WoDescriptionAry[i], CreatedUserAry[i], WoStatusAry[i],WoVerifyAry[i], WoReOpenAry[i]]).draw(false);
                    
                     dtbl1.row.add([
                         intX, 
                         res.Data_Ary[i][1],
-                        res.Data_Ary[i][3].substring(2, 16), 
-                        strWoDepartment, 
-                        res.Data_Ary[i][8],
+                        res.Data_Ary[i][2], 
+                        res.Data_Ary[i][3],
                         res.Data_Ary[i][4], 
-                        strDescription, 
-                        res.Data_Ary[i][10],
-                        res.Data_Ary[i][12]
+                        res.Data_Ary[i][5],
+                        res.Data_Ary[i][6],
+                        res.Data_Ary[i][7]
                     ]).draw(false);
                 } 
             }
@@ -492,52 +453,7 @@
         funRefresh_WoTable();
     }
     //-------------------- Model : Edit Update Clicked -------------------------
-    function funClickedModBreakdownStatusUpdate() 
-    {
-        //alert("Model Breakdown State Change Clicked");   
-        const DataAry = []; 
-        DataAry[0] = document.getElementById("id_mod_breakdown_WoNo").value;        
-        DataAry[1] = document.getElementById("id_mod_breakdown_dt").value;        
-        DataAry[2] = document.getElementById("id_mod_breakdown_note").value;
-        DataAry[3] = document.getElementById("id_mod_breakdown_WoStatus").value;        
-        //alert(DataAry);          
-       
-        //var vblSendPara =  "1234"; 
-        $.post('class/updateData_WoBreakDownState.php', { userpara: DataAry }, function(json_data2) 
-        {
-            //alert(json_data2);           
-            var res = $.parseJSON(json_data2);
-            //alert(res);
-            //alert(res[0]); 
-            //alert(res[1]);   
-            if(intMqttState === 1)
-            {
-                message = new Paho.MQTT.Message("{\"MacAdd\":\"E8:9F:6D:92:D3:0D\",\"MsgType\":\"BrkdwnEvent\",\"IPAdd\":\"192.168.1.105\",\"UserName\":\"Kelum\",\"ModelNo\":\"DCS-1507A_UI\",\"ManufacDate\":\"16/12/2023\",\"EventNo\":\"1\",\"PwrOnCount\":\"0\",\"RunTime\":\"0\",\"FrameworkVer\":\"DCS-1507A_Frm3\",\"SoftVer\":\"8.0\",\"SigStrength\":\"-36\"}");
-                message.destinationName = strPublishTopic;
-                mqtt.send(message);
-            }
-            else
-            {
-                //alert("Fail Connecting with server");
-                Swal.fire({
-                            title: 'Alert !!',
-                            text: 'Fail Connecting with server.',
-                            icon: 'Warning', // success, error, warning, info, question
-                            confirmButtonText: 'OK'
-                        });
-            }    
-            //var AryCustomOrder = new Array();
-            //AryCustomOrder = res.CustomOrderAry;
-            //document.getElementById("id_status").value = res[1];
-        }); 
-        //alert("Data Updated successfully.");
-               
-        var varmodbox = document.getElementById("id_mod_breakdown_statechange");
-        varmodbox.style.display = "none";        
-        funRefresh_WoTable();
-        
-    }
-   
+    
     
     function funHome_SelDepartmentFilter()
     {
@@ -569,50 +485,26 @@
                 dtbl1.clear().draw();            
                 for(i=0; i<intRecCount; i++)
                 {       
+                    //if(intDebugEnable === 1)    alert("intRecCount : " + intRecCount);
                     let intX = i+1;
                     let strWoCategory   = res.Data_Ary[i][4];
                     let strDescription  = "";
-                    if(strWoCategory === "BreakDown")
-                    {
-                        //alert("Breakdown");
-                        strDescription = res.Data_Ary[i][6] + " (" +res.Data_Ary[i][7] + ")";
-                    }
-                    else if(strWoCategory === "PlanMaintenance")
-                    {
-                        //alert("PlanMaintenance");
-                        strDescription = res.Data_Ary[i][9];
-                    }  
-                    else if(strWoCategory === "RedTag")
-                    {
-                        //alert("RedTag");
-                        strDescription = res.Data_Ary[i][9];
-                    }  
-                    else if(strWoCategory === "BuildingMaintenance")
-                    {
-                        //alert("BuildingMaintenance");
-                        strDescription = res.Data_Ary[i][9];
-                    }  
-                    else if(strWoCategory === "OtherProject")
-                    {
-                        //alert("OtherProject");
-                        strDescription = res.Data_Ary[i][5] + " (" +res.Data_Ary[i][9] + ")";
-                    }
-                    else        // Error Wo CAtegory not found
-                    {
-                        alert("Wo Category not found");
-                        writeToLogFile("Home Table: Wo Category not found");
-                    } 
-                    //------------------ Chat and Department ----------------------
-                    if(Number(res.Data_Ary[i][13]) === 0) {
-                       strWoDepartment = res.Data_Ary[i][2];
-                    }
-                    else {
-                       strWoDepartment = '<i class="far fa-envelope"></i> ' + res.Data_Ary[i][2];
-                    }
+                    
+
                     //alert(strDescription); 
                     //dtbl1.row.add([IDAry[i], WorkOrderNoAry[i], WoDepartmentAry[i] , CreatedDateTimeAry[i], WorkOrderCategoryAry[i], WoDescriptionAry[i], CreatedUserAry[i], WoStatusAry[i],WoVerifyAry[i], WoReOpenAry[i]]).draw(false);
-                    dtbl1.row.add([intX, res.Data_Ary[i][1],res.Data_Ary[i][3].substring(2, 16), strWoDepartment, res.Data_Ary[i][8], res.Data_Ary[i][4], strDescription, res.Data_Ary[i][10],res.Data_Ary[i][11], res.Data_Ary[i][12]]).draw(false);
-                } 
+                   
+                    dtbl1.row.add([
+                        intX, 
+                        res.Data_Ary[i][1],
+                        res.Data_Ary[i][2], 
+                        res.Data_Ary[i][3],
+                        res.Data_Ary[i][4], 
+                        res.Data_Ary[i][5],
+                        res.Data_Ary[i][6],
+                        res.Data_Ary[i][7]
+                    ]).draw(false);
+                }  
             }
             else
             {
@@ -622,76 +514,7 @@
             }                     
         });
     }
-    //--------------------- Mechanic Dashboard (100-12) ----------------------   
-    function funRefresh_MechanicDashboard()
-    {
-        let intDebugEnable = 0;        
-        if(intDebugEnable === 1)    alert("funRefresh_MechanicDashboard");
-        
-        
-        //alert("Update Mechanic Dashboard");
-        if(!roll_areas_ary.includes('10012'))
-        {
-            //alert("Remove Mechanic Dashboard");
-            document.getElementById('id_McDashboard').style.display         = 'none';
-            document.getElementById('id_McDashboard_line').style.display    = 'none';
-            //document.getElementById('id_AndonDashboard_line').style.display = 'none';            
-        }
-        else
-        {
-            //if(intDebugEnable === 1) alert("Mechanic Dashboard Working");  
-            const DataAry = [];
-            DataAry[0] = "funGetMcDashboardData";               // Function Name    
-            DataAry[1] = JS_SessionArry[0].CurrentUserEPF;      // User EPF
-            //DataAry[2] = startTime;            
-            //-------------- Find Current Shift ------------------------------------
-            // Retrieve the current date and time
-            var currentDate = new Date();
-            var currentHour = currentDate.getHours();
-            if (currentHour >= 7 && currentHour < 19) 
-            {
-                const startDate = new Date();
-                startDate.setHours(7, 0, 0, 0); // Change only the time part to 07:00:00
-                startDate.setHours(startDate.getHours() + 5); // Add 5 hours
-                startDate.setMinutes(startDate.getMinutes() + 30); // Add 30 minutes
-
-                const endDate = new Date(startDate.getTime() + (12 * 60 * 60 * 1000)); // Add 12 hours  
-                DataAry[2] = startDate.toISOString().slice(0, 16);
-                DataAry[3] = endDate.toISOString().slice(0, 16);
-            }
-            else 
-            {
-                const startDate = new Date();
-                startDate.setHours(19, 0, 0, 0); // Change only the time part to 07:00:00
-                startDate.setHours(startDate.getHours() + 5); // Add 5 hours
-                startDate.setMinutes(startDate.getMinutes() + 30); // Add 30 minutes
-
-                const endDate = new Date(startDate.getTime() + (12 * 60 * 60 * 1000)); // Add 12 hours 
-                DataAry[2] = startDate.toISOString().slice(0, 16);
-                DataAry[3] = endDate.toISOString().slice(0, 16);
-            }
-         
-            //if(intDebugEnable === 1) alert("DataAry" +DataAry); 
-            $.post('class/getData_HomeMcDashboard.php', { userpara: DataAry }, function(json_data2) 
-            {
-                //alert(json_data2); 
-                //if(intDebugEnable === 1) alert("json_data2" + json_data2); 
-                var res = $.parseJSON(json_data2);   
-
-                if(res.Status_Ary[0] === "true")
-                {
-                    if(intDebugEnable === 1) alert("res.Status_Ary[0]" + res.Status_Ary[0]);
-                    
-                    document.getElementById("id_McDashboard_NoOfAsgnJob_value").innerHTML   = res.Data_Ary[0];
-                    document.getElementById("id_McDashboard_NoOfCmplt_value").innerHTML     = res.Data_Ary[1];
-                    document.getElementById("id_McDashboard_TotChkTime_value").innerHTML    = res.Data_Ary[2];
-                    document.getElementById("id_McDashboard_CheckInWoNo_value").innerHTML    = res.Data_Ary[3];
-                }                  
-            }); 
-                   
-        }
-
-    }
+    
 
     //--------------- Auto Veryfy after 24 Hours of closed WO ------------------------
     function funAutoVerifyWo()
