@@ -319,6 +319,7 @@
                 table2.rows('.selected').nodes().each((row) => row.classList.remove('selected'));
                 classList.add('selected');          
                 funWoTableRowClicked();
+                
             //}            
         });        
     });

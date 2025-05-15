@@ -28,7 +28,7 @@ function funMoWoDetails_Close()
 //--------------- Function Click Create Breakdown ----------------------------
 function funWoTableRowClicked()
 {        
-    //alert("Table row Clicked..1"); 
+    alert("Table row Clicked..1"); 
     //writeToLogFile("Open Workorder details :"); 
     //alert("Log test ..");
     
@@ -49,7 +49,7 @@ function funWoTableRowClicked()
         //var table3 = $('#example1').DataTable();        
         //var mydata = table3.rows('.selected').data(); 
         var mydata = dtbl1.rows('.selected').data(); 
-        //alert(mydata[0][5]);
+        alert(mydata[0][5]);
         //alert(mydata[0][24]);
         var strWorkOrderNumber      = mydata[0][1];
         var strWorkOrderDepartment  = mydata[0][3];
