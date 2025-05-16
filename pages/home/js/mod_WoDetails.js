@@ -28,7 +28,7 @@ function funMoWoDetails_Close()
 //--------------- Function Click Create Breakdown ----------------------------
 function funWoTableRowClicked()
 {        
-    alert("Table row Clicked..1"); 
+    //alert("Table row Clicked..1"); 
     //writeToLogFile("Open Workorder details :"); 
     //alert("Log test ..");
     
@@ -49,11 +49,11 @@ function funWoTableRowClicked()
         //var table3 = $('#example1').DataTable();        
         //var mydata = table3.rows('.selected').data(); 
         var mydata = dtbl1.rows('.selected').data(); 
-        alert(mydata[0][5]);
+        //alert(mydata[0][5]);
         //alert(mydata[0][24]);
         var strWorkOrderNumber      = mydata[0][1];
-        var strWorkOrderDepartment  = mydata[0][3];
-        var strWorkOrderCategory    = mydata[0][5];
+        var strWorkOrderDepartment  = mydata[0][2];
+        var strWorkOrderCategory    = mydata[0][4];
         var strWorkOrderStatus      = mydata[0][7];
         //var strWorkOrderVerify      = mydata[0][8];
         JS_SessionArry[0].WorkOrderNo           = strWorkOrderNumber;
@@ -85,46 +85,7 @@ function funWoTableRowClicked()
             document.getElementById("id_ModWoDetails_WoNo").innerHTML       = res.WorkOrderNo_Ary;
             document.getElementById("id_ModWoDetails_WoDate").innerHTML     = res.CreatedDateTime_Ary;   
             let tmpWoCategory   = res.WorkOrderCategory_Ary[0];
-            //(tmpWoCategory);            
-            document.getElementById("id_ModWoDetails_WoProblem").innerHTML  = "NA";
-            document.getElementById("id_ModWoDetails_Machine").innerHTML = "NA";                
-            //tmpWoCategory = "BreakDown";
-            if(tmpWoCategory === "BreakDown")
-            {
-                //alert("Breakdown-1");
-                document.getElementById("id_ModWoDetails_WoProblem").innerHTML  = res.FaultType_Ary[0];
-                document.getElementById("id_ModWoDetails_Machine").innerHTML    = res.MachineNo_Ary[0] + " [" + strWorkOrderDepartment + "]" + res.WoDescription_Ary[0];
-            }
-            else if(tmpWoCategory === "PlanMaintenance")
-            {
-                //alert("PlanMaintenance-1");
-                document.getElementById("id_ModWoDetails_WoProblem").innerHTML  = res.WorkOrderCategory_Ary[0] +" [" + strWorkOrderDepartment + "]";
-                document.getElementById("id_ModWoDetails_Machine").innerHTML    = res.WoDescription_Ary[0] ;
-       
-            }  
-            else if(tmpWoCategory === "RedTag")
-            {
-                //alert("RedTag-1");
-                document.getElementById("id_ModWoDetails_WoProblem").innerHTML  = res.WorkOrderCategory_Ary[0] +" [" + strWorkOrderDepartment + "]";
-                document.getElementById("id_ModWoDetails_Machine").innerHTML    = res.MachineNo_Ary[0] + " [" + res.WoDescription_Ary[0] + "]";
-            }  
-            else if(tmpWoCategory === "BuildingMaintenance")
-            {
-                //alert("BuildingMaintenance-1");
-                document.getElementById("id_ModWoDetails_WoProblem").innerHTML  = res.WorkOrderCategory_Ary[0] +" [" + strWorkOrderDepartment + "]";
-                document.getElementById("id_ModWoDetails_Machine").innerHTML    = res.WoDescription_Ary[0];
-            }  
-            else if(tmpWoCategory === "OtherProject")
-            {
-                //alert("OtherProject-1");
-                document.getElementById("id_ModWoDetails_WoProblem").innerHTML  = res.WorkOrderCategory_Ary[0] + " [" + strWorkOrderDepartment + "]";
-                document.getElementById("id_ModWoDetails_Machine").innerHTML    = res.WorkOrderSubCategory_Ary[0] + " : " + res.WoDescription_Ary[0];
-            }
-            else        // Error Wo CAtegory not found
-            {
-                alert("Wo Category not found");
-                //writeToLogFile("Home Table: Wo Category not found");
-            }
+            
             //------------- Update Wo Event Log --------------------------------------
             var strEventList = "";
             var EventList_Ary = res.WoEventLog_Ary[0];
@@ -192,33 +153,7 @@ function funWoTableRowClicked()
                 dtbl4.clear().draw();
             }
         });    
-        //------------ Read Allocated Mechanics list -------------------------
-        DataAry[0] = "funGetAllocatedUserData";      
-        DataAry[1] = strWorkOrderNumber;     
-        //alert(DataAry);             
-        //var vblSendPara =  "1234";         
-        $.post('class/comFunctions.php', { userpara: DataAry}, function(json_data2) 
-        {
-            //alert(json_data2);  
-            var res = $.parseJSON(json_data2);
-            if(res.Status_Ary[0] === "true")
-            {            
-                var AllocatedMcList = "";
-                var AllocatedMc_Ary = res.Data_Ary;
-                for (i = 0; i < AllocatedMc_Ary.length; i++) 
-                {
-                    //alert(res.Data_Ary[i].WorkOrderNo);
-                    AllocatedMcList += res.Data_Ary[i].AllocatedUser + "," +res.Data_Ary[i].EmpName + " [" + res.Data_Ary[i].Contact +"]";
-                    AllocatedMcList += "<br>";
-                } 
-                document.getElementById("id_ModWoDetails_AllocatedMc").innerHTML   = AllocatedMcList;
-            }
-            else
-            {
-                document.getElementById("id_ModWoDetails_AllocatedMc").innerHTML   = "";
-                //alert("No data found");
-            }
-        });
+        
         //------------ Read Chat History Data List -------------------------
         DataAry[0] = "funGetChatHistoryData";      
         DataAry[1] = strWorkOrderNumber;     

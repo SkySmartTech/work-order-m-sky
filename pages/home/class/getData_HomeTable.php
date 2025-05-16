@@ -49,7 +49,8 @@
                         e.WorkOrderSubCategory, 
                         e.WoDescription, 
                         e.WoStatus,
-                        e.WorkOrderNo
+                        e.WorkOrderNo,
+                        e.Wo_Type
                     FROM 
                         tblwo_event e
                     WHERE 
@@ -72,7 +73,9 @@
                     $ReturnData_ary[$i][4] = $row['WorkOrderCategory']; 
                     $ReturnData_ary[$i][5] = $row['WorkOrderSubCategory']; 
                     $ReturnData_ary[$i][6] = $row['WoDescription'];                    
-                    $ReturnData_ary[$i][7] = $row['WoStatus']; 
+                    $ReturnData_ary[$i][7] = $row['WoStatus'];
+                    $ReturnData_ary[$i][8] = $row['Wo_Type']; 
+                     
                     
                     $i++;
                     //echo $i;
@@ -105,7 +108,8 @@
                         e.WorkOrderSubCategory, 
                         e.WoDescription, 
                         e.WoStatus,
-                        e.WorkOrderNo
+                        e.WorkOrderNo,
+                        e.Wo_Type
                     FROM 
                         tblwo_event e
                     WHERE 
@@ -128,6 +132,7 @@
                     $ReturnData_ary[$i][5] = $row['WorkOrderSubCategory']; 
                     $ReturnData_ary[$i][6] = $row['WoDescription'];                    
                     $ReturnData_ary[$i][7] = $row['WoStatus']; 
+                    $ReturnData_ary[$i][8] = $row['Wo_Type']; 
                     $i++;
                     //echo $i;
                 }

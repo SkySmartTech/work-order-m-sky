@@ -91,6 +91,7 @@
                                         <th>Sub Category</th>
                                         <th>Details</th>                                                  
                                         <th>Status</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>                                       
@@ -102,10 +103,10 @@
                     <!-- Action Buttons -->
                 <div class="row">
                     <div class="col-12 text-center mt-4">
-                        <button type="button" class="btn btn-outline-danger mx-2 rounded-pill shadow-sm px-4" onclick="funModelPlannedMaintenanceClicked()" style="min-width: 180px;">
+                        <button type="button" class="btn btn-outline-danger mx-2 rounded-pill shadow-sm px-4" onclick="funModelPlannedMaintenanceClicked()" style="min-width: 280px;">
                             <i class="far fa-bell"></i> Urgent
                         </button>
-                        <button type="button" class="btn btn-outline-warning mx-2 rounded-pill shadow-sm px-4" onclick="funModRedTagCreateClicked()" style="min-width: 180px;">
+                        <button type="button" class="btn btn-outline-warning mx-2 rounded-pill shadow-sm px-4" onclick="funModRedTagCreateClicked()" style="min-width: 280px;">
                             <i class="fas fa-bullhorn"></i> Normal
                         </button>
                     </div>
@@ -220,6 +221,7 @@
     const scrollSpeed = 30; // Adjust scrolling speed as needed
     const cardContainer = document.getElementById('id_AndonDashboard');
     document.getElementById("userDepartmentTitle").innerText = "User's Department : " + JS_SessionArry[0].CurrentUserDepartment;
+    document.getElementById("usernormalDepartmentTitle").innerText = "User's Department : " + JS_SessionArry[0].CurrentUserDepartment;
 
     $(function () 
     {        
@@ -241,7 +243,7 @@
         });  
          //alert("Hooi");
         //------------ Home DataTable Initialize -------------------
-        let intTableHeight = 160;
+        let intTableHeight = 560;
         if(roll_other_ary.includes("90012")){intTableHeight = 400;}
 
         $("#example1").DataTable({
@@ -251,8 +253,10 @@
                 { "width": "10%", "targets": 2 }, // Time
                 { "width": "15%", "targets": 3 }, // Category
                 { "width": "15%", "targets": 4 }, // Sub Category
-                { "width": "25%", "targets": 5 }, // Details
-                { "width": "20%",  "targets": 6 }  // Status
+                { "width": "15%", "targets": 5 }, // Details
+                { "width": "25%",  "targets": 6 },  // Status
+                { "width": "10%",  "targets": 7 }  // Status
+                
 
             ],
             "paging": false,
@@ -294,9 +298,12 @@
     {     
         //alert("Test cell created");
         var strCellStatus  = data[7];
-        if (strCellStatus === "New")                {$(row).css('background-color', 'orange');}
-        else if (strCellStatus === "Inprogress")    {$(row).css('background-color', 'lightblue');}
-        else       {$(row).css('background-color', 'lightgreen');}                     
+        var strCelltype  = data[8];
+        if (strCellStatus === "New")                {$(row).css('background-color', 'orange');}  
+        else if (strCellStatus === "Inprogress")    {$(row).css('background-color', 'lightblue');}  
+        else       {$(row).css('background-color', 'lightgreen');} 
+        
+        if((strCelltype === "urgent")&& ((strCellStatus === "New")||(strCellStatus === "Inprogress")))               {$(row).css('background-color', 'red');}
 
         //$(row).find('td:eq(4)').css('background-color', data[1]);
         //$(row).find('td:eq(5)').css('background-color', data[2]);
@@ -420,7 +427,8 @@
                         res.Data_Ary[i][4], 
                         res.Data_Ary[i][5],
                         res.Data_Ary[i][6],
-                        res.Data_Ary[i][7]
+                        res.Data_Ary[i][7],
+                        res.Data_Ary[i][8]
                     ]).draw(false);
                 } 
             }
@@ -503,7 +511,8 @@
                         res.Data_Ary[i][4], 
                         res.Data_Ary[i][5],
                         res.Data_Ary[i][6],
-                        res.Data_Ary[i][7]
+                        res.Data_Ary[i][7],
+                        res.Data_Ary[i][8]
                     ]).draw(false);
                 }  
             }

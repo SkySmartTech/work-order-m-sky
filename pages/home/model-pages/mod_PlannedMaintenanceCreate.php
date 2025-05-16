@@ -17,7 +17,7 @@
                 <div class="row p-1 justify-content-center">
                     <div class="col-md-6">                   
                         <label class="w-100 text-center" style="font-weight: bolder">Select Department</label>    
-                        <select class="form-control select2" onchange="funModPlanMntCre_MachineCategoryFilter()" id="id_ModPlanMntCre_SelMcCategory" style="width: 100%;">
+                        <select class="form-control select2" onchange="funModCategory()" id="id_ModDepartment" style="width: 100%;">
                             <option selected="none"></option>                            
                         </select>
                     </div>
@@ -27,13 +27,13 @@
                     
                     <div class="col-md-6">                   
                         <label style="font-weight: bolder">Work order Category</label>    
-                        <select class="form-control select2" onchange="funModPlanMntCre_MachineCategoryFilter()" id="id_ModPlanMntCre_SelMcCategory" style="width: 100%;">
+                        <select class="form-control select2" onchange="funModSubCategory()" id="id_Modcategory" style="width: 100%;">
                             <option selected="none"></option>                            
                         </select>
                     </div>
                     <div class="col-md-6">                      
                          <label style="font-weight: bolder">Work order Sub Category</label>    
-                        <select class="form-control select2" onchange="funModPlanMntCre_MachineNoFilter()" id="id_ModPlanMntCre_SelMachineNo" style="width: 100%; background-color: blue">
+                        <select class="form-control select2" onchange="funModPlanMntCre_MachineNoFilter()" id="id_ModSubCategory" style="width: 100%; background-color: blue">
                             <option selected="none"></option>                            
                         </select>               
                     </div>

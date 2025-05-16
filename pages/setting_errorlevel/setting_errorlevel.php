@@ -54,7 +54,7 @@ if (isset($_FILES['file']))
         {
             echo "Connection failed: " . $e->getMessage();
         } 
-        echo '<h2>Update new data..</h2>';
+        //echo '<h2>Update new data..</h2>';
         //echo '<table border="1" cellpadding="3" style="border-collapse: collapse">';
         //------------- Read Excel File --------------------------
         //$dim = $xlsx->dimension();
@@ -66,12 +66,9 @@ if (isset($_FILES['file']))
             //------------ Read One Row --------------------------
                       
             $Department     = isset($row[0]) ? $row[0] : '&nbsp;' ;
-            $MC_Category    = isset($row[1]) ? $row[1] : '&nbsp;' ;
-            $FaultType      = isset($row[2]) ? $row[2] : '&nbsp;' ;
-            $Level1         = isset($row[3]) ? $row[3] : '&nbsp;' ;
-            $Level2         = isset($row[4]) ? $row[4] : '&nbsp;' ;
-            $Level3         = isset($row[5]) ? $row[5] : '&nbsp;' ;
-            $Level4         = isset($row[6]) ? $row[6] : '&nbsp;' ;
+            $Category    = isset($row[1]) ? $row[1] : '&nbsp;' ;
+            $SubCategory      = isset($row[2]) ? $row[2] : '&nbsp;' ;
+
             //$Level4 = "1";
             
             //if($FaultType == ""){ $FaultType = "NA";}
@@ -84,17 +81,17 @@ if (isset($_FILES['file']))
             // $repProduct = str_replace(chr(39), chr(32),$Product);
             //$repProduct2 = str_replace(chr(96), chr(32),$repProduct);
             
-            $repMC_Category = str_replace(["'", "<", ">", "'", "/"]," ", $MC_Category);
+            $rep_Category = str_replace(["'", "<", ">", "'", "/"]," ", $Category);
             //$repDesignDescription = str_replace(["'", "<", ">", "'"]," ", $DesignDescription);
             
-            echo  $Department . '&nbsp;' . $repMC_Category . '&nbsp;' . $FaultType . '&nbsp;'. $Level1. '&nbsp;' .$Level2. '&nbsp;' . $Level3;                       
-            echo '<BR>';
-            echo '<BR>';  
+            //echo  $Department . '&nbsp;' . $rep_Category . '&nbsp;' . $SubCategory;                       
+            //echo '<BR>';
+            //echo '<BR>';  
                        
             //INSERT INTO tblerrorlevel (ID, Department, McCategory, Level1, Level2, Level3, Level4) VALUES (NULL, 'dep', 'mc', 'l1', 'l2', 'l3', 'l4');
 
-            $sql = "INSERT INTO tblwo_errorlevel_breakdown (Department, McCategory, FaultType, Level1, Level2, Level3, Level4) "
-                    . "VALUES ('" .$Department. "','" . $repMC_Category . "','" . $FaultType . "','" . $Level1. "','" .$Level2. "','" .$Level3. "','" .$Level4. "')";
+            $sql = "INSERT INTO tblwo_errorlevel_breakdown (Department, Category, SubCategory) "
+                    . "VALUES ('" .$Department. "','" . $rep_Category . "','" . $SubCategory . "')";
              
             //$sql = "INSERT INTO tblsmsevent (ServerDateTime, UnitId, UnitModel, MfmID, Region, Province, Area, ECSC, SinNo, FederNo, Status, V1N, V2N, V3N, I1A, I2A, I3A,TotalkW, TotalkVA, kWh, kVAh) "
             //        . "VALUES ('".$server_date."','".$UnitId."','SMS-1470B','".$MfmID."', 'R1', 'CP', 'Kegalle', 'ECSC1', 'SIN1', 'F1_Rotuwa', '".$Status."', '".$V1N."','".$V2N."', '".$V3N."', '".$I1A."', '".$I2A."', '".$I3A."', '".$TotalkW."', '".$TotalkVA."', '".$kWh."', '".$kVAh."')";
@@ -148,7 +145,7 @@ if (isset($_FILES['file']))
                     <!-- /.card-header -->                    
                     <div class="card card-default" >
                         <div class="card-header">
-                            <h2 class="card-title">Master Data Update</h2>
+                            <h2 class="card-title">Master Data category Update</h2>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                     <i class="fas fa-minus"></i>

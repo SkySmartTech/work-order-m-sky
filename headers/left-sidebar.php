@@ -204,6 +204,12 @@
                                     <p>Master Data Upload</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="../setting_errorlevel/task.php" class="nav-link">
+                                    <i class="nav-icon far fa-edit"></i>
+                                    <p>Task  Upload</p>
+                                </a>
+                            </li>
                         <?php endif; ?>
                     </ul>
                 </li>
