@@ -106,7 +106,7 @@
                         <button type="button" class="btn btn-outline-danger mx-2 rounded-pill shadow-sm px-4" onclick="funModelPlannedMaintenanceClicked()" style="min-width: 280px;">
                             <i class="far fa-bell"></i> Urgent
                         </button>
-                        <button type="button" class="btn btn-outline-warning mx-2 rounded-pill shadow-sm px-4" onclick="funModRedTagCreateClicked()" style="min-width: 280px;">
+                        <button type="button" class="btn btn-outline-success mx-2 rounded-pill shadow-sm px-4" onclick="funModRedTagCreateClicked()" style="min-width: 280px;">
                             <i class="fas fa-bullhorn"></i> Normal
                         </button>
                     </div>

@@ -175,13 +175,14 @@ if (isset($_FILES['file'])) {
                     
                     <!-- /.row (main row) -->
                 </div><!-- /.container-fluid -->
-                <!-- Include Footer -->
-                <?php
-                     include '../../headers/footer-bar.php'
-                ?> 
+                 
             </section>
         </div>    
     </section>   
+    <!-- Include Footer -->
+                <?php
+                     include '../../headers/footer-bar.php'
+                ?>
 </div>    
   <!-- Page specific script -->
 <script>

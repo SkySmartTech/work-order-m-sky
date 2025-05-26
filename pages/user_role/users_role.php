@@ -292,12 +292,13 @@
                     </div><!-- /.container-fluid -->
                     <br/><br/><!-- comment -->
                     <!-- Include Footer -->
-                    <?php
-                        include '../../headers/footer-bar.php'
-                    ?> 
+                     
                 </div>
             </section>
-        </div>    
+        </div>  
+        <?php
+                        include '../../headers/footer-bar.php'
+                    ?>  
     </div>    
 
     <!-- Navbar -->

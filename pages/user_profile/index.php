@@ -18,7 +18,7 @@
 ?>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
+    <div class="wrapper d-flex flex-column min-vh-100">
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__shake" src="../../myimg/favicon-16x16.png" alt="Sky Logo" height="60" width="60">
@@ -102,23 +102,39 @@
                             
                         </div>
                     </div>
+                     
                 </div><!-- /.container-fluid -->
                <!-- Include Footer -->
-               <br/><!-- comment -->
-               <br/>
-               <br/>
-                <?php
-                    include '../../headers/footer-bar.php'
-                ?> 
+               
+                 
             </section>
-        </div>    
+              
+        </div>
+        <?php
+                    include '../../headers/footer-bar.php'
+                ?>
+         
 
-</div>    
+</div> 
+  
+<style>
+    html, body {
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full height of the viewport */
+}
+
+.content-wrapper {
+  flex: 1; /* Makes this area grow to fill available space */
+}
+</style> 
  
 <!-- Navbar -->
-<?php
-  // include './model-pages/mod_BreakDown.php';        
-?>    
+ 
 
 <!-- Page specific script -->
 <script>
@@ -192,5 +208,6 @@
         }
     }  
 </script>
+
 </body>
 </html>

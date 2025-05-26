@@ -1,4 +1,4 @@
-<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="height:30px">
+<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="height:50px">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
@@ -8,7 +8,7 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">               
         <li class="nav-item">
-            <a href="#" class="nav-link text-primary text-primary"><b>&nbsp;&nbsp;User : <?php echo $_SESSION["user_name"]; ?></b></a>
+            <a href="../user_profile/index.php" class="nav-link text-primary text-primary"><b>&nbsp;&nbsp;User : <?php echo $_SESSION["user_name"]; ?></b></a>
         </li> 
         <li><div class="theme-switch-wrapper">
                         <div class="theme-switch">
