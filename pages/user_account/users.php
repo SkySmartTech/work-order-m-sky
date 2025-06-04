@@ -143,13 +143,15 @@
                     </div>          
                 </div><!-- /.container-fluid -->
                 <!-- Include Footer -->
-                <?php
-                    include '../../headers/footer-bar.php'
-                ?> 
+                 
             </section>
-        </div>    
+            
+        </div>
+            
     </div>    
- 
+ <?php
+                    include '../../headers/footer-bar.php'
+                ?>
 <!-- Navbar -->
 <?php
   // include './model-pages/mod_BreakDown.php';        

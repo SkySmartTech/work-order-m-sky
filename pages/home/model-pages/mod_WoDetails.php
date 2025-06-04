@@ -27,16 +27,7 @@
                                     <td style="width:2%;">:</td>   
                                     <td style="width:65%;" id="id_ModWoDetails_WoDate">-</td>   
                                 </tr> 
-                                <tr>
-                                    <td style="width:33%;">Problem</td>
-                                    <td style="width:2%;">:</td>   
-                                    <td style="width:65%;"> <div class="fixed-height-label overflow-auto" style="height: 30px; max-height: 30px;" id="id_ModWoDetails_WoProblem" readonly></div> </td>   
-                                </tr> 
-                                <tr>
-                                    <td style="width:33%;">Machine</td>
-                                    <td style="width:2%;">:</td>   
-                                    <td style="width:65%;"> <div class="fixed-height-label overflow-auto" style="height: 30px; max-height: 30px;" id="id_ModWoDetails_Machine" readonly></div> </td>   
-                                </tr> 
+                                
                             </tbody>               
                         </table>                        
                     </div>                     
@@ -69,14 +60,7 @@
                             </table> 
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label><strong>Allocated Mechanics</strong></label>
-                            <div class="fixed-height-label overflow-auto" style="height: 80px; max-height: 140px;" id="id_ModWoDetails_AllocatedMc" readonly>                              
-                            
-                            </div> 
-                        </div>
-                    </div>
+                    
                 </div>    
                 
                 <div class="border-top my-1"></div> 
@@ -94,16 +78,16 @@
                 <div class="row">                    
                     <div class="col-md-6">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary" onclick="funModWoDetails_AllocateMC()" style="width: 32%" <?php echo (in_array('1001812', $roll_areas) ? '' : 'disabled'); ?>>Allocate MC</button>
-                            <button type="submit" class="btn btn-primary" onclick="funModWoDetails_CheckIn()" id="id_ModWoDetails_btnCheckIn" style="width: 32%" <?php echo (in_array('1001813', $roll_areas) ? '' : 'disabled'); ?>>Check In</button>
-                            <button type="submit" class="btn btn-primary" onclick="funModWoDetails_WoClose()" style="width: 32%" <?php echo (in_array('1001814', $roll_areas) ? '' : 'disabled'); ?>>Close WO</button>
+
+                            <button type="submit" class="btn btn-primary" onclick="funModWoDetails_CheckIn()" id="id_ModWoDetails_btnCheckIn" style="width: 32%" >Check In</button>
+                            <button type="submit" class="btn btn-primary" onclick="funModWoDetails_WoClose()" style="width: 32%" >Close WO</button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary" onclick="funModWoDetails_WoVerify()" style="width: 32%" <?php echo (in_array('1001815', $roll_areas) ? '' : 'disabled'); ?>>Verify</button>
-                            <button type="submit" class="btn btn-primary" onclick="funModWoDetails_WoReOpen()" style="width: 32%" <?php echo (in_array('1001816', $roll_areas) ? '' : 'disabled'); ?>>Re-Open</button>
-                            <button type="submit" class="btn btn-primary" onclick="funModWoDetails_WoChat()" style="width: 32%" <?php echo (in_array('1001817', $roll_areas) ? '' : 'disabled'); ?>>Chat</button>             
+                            <button type="submit" class="btn btn-primary" onclick="funModWoDetails_WoVerify()" style="width: 32%" >Verify</button>
+                            <button type="submit" class="btn btn-primary" onclick="funModWoDetails_WoReOpen()" style="width: 32%" >Re-Open</button>
+                            <button type="submit" class="btn btn-primary" onclick="funModWoDetails_WoChat()" style="width: 32%" >Chat</button>             
                           
                         </div>
                     </div>

@@ -22,16 +22,16 @@
     $strDep = $num[1];   
     //$strDep = "Planning";
     $i = 1;
-    if($strFilterType === "MachineCategory")
+    if($strFilterType === "Department")
     {
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         if($strDep == "Engineering")
         {
-            $sqlString = "SELECT DISTINCT MachineCategory FROM tblwo_machinemanagement";        
+            $sqlString = "SELECT DISTINCT Department FROM tblwo_errorlevel_breakdown";        
         }
         else
         {
-           $sqlString = "SELECT DISTINCT MachineCategory FROM tblwo_machinemanagement WHERE Department='" . $strDep . "'" ; 
+           $sqlString = "SELECT DISTINCT Department FROM tblwo_errorlevel_breakdown " ; 
         }
         $stmt = $conn->prepare($sqlString);
         $stmt->execute();
@@ -39,7 +39,7 @@
         $result = $stmt->fetchAll();        
         foreach($result as $row)
         {                            
-            $ReturnData_ary[$i]    = $row['MachineCategory'];                         
+            $ReturnData_ary[$i]    = $row['Department'];                         
             $i++;
         }  
         if($i === 0)    // No Data

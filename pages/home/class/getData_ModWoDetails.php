@@ -40,7 +40,7 @@
     
     //-------------- Machine Category Disinct Values ----------------------- 
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT WorkOrderNo,CreatedDateTime,CreatedFaultType,WorkOrderCategory,WorkOrderSubCategory,WoDescription,WoDepartment,MachineNo,AllocatedUser,WoEventLog FROM tblwo_event WHERE WorkOrderNo =:wono");
+    $stmt = $conn->prepare("SELECT WorkOrderNo,CreatedDateTime,WorkOrderCategory,WorkOrderSubCategory,WoDescription,WoDepartment,WoEventLog FROM tblwo_event WHERE WorkOrderNo =:wono");
     $stmt->bindParam(':wono', $strWoNumber);
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_ASSOC);        
@@ -49,26 +49,26 @@
     {           
         $WorkOrderNo_ary[$i]      = $row['WorkOrderNo'];
         $CreatedDateTime_ary[$i]  = $row['CreatedDateTime'];          
-        $FaultType_ary[$i]              = $row['CreatedFaultType'];
+        
         $WorkOrderCategory_ary[$i]      = $row['WorkOrderCategory'];
         $WorkOrderSubCategory_ary[$i]   = $row['WorkOrderSubCategory']; 
         $WoDescription_ary[$i]    = $row['WoDescription'];      
         $WoDepartment_ary[$i]     = $row['WoDepartment'];
-        $MachineNo_ary[$i]        = $row['MachineNo'];
-        $AllocatedUser_ary[$i]    = $row['AllocatedUser'];        
+        
+          
         $WoEventLog_ary[$i]       = explode(',', $row['WoEventLog']);   //$row['WoEventLog'];        
         $i++;
     }             
     //----------- Load Arrays -------------------------
     $data_ary['WorkOrderNo_Ary']        = $WorkOrderNo_ary;    
     $data_ary['CreatedDateTime_Ary']    = $CreatedDateTime_ary;      
-    $data_ary['FaultType_Ary']              = $FaultType_ary;
+    
     $data_ary['WorkOrderCategory_Ary']      = $WorkOrderCategory_ary;
     $data_ary['WorkOrderSubCategory_Ary']   = $WorkOrderSubCategory_ary;
     $data_ary['WoDescription_Ary']  = $WoDescription_ary; 
     $data_ary['WoDepartment_Ary']   = $WoDepartment_ary;    
-    $data_ary['MachineNo_Ary']      = $MachineNo_ary;  
-    $data_ary['AllocatedUser_Ary']  = $AllocatedUser_ary;  
+    
+    
     $data_ary['WoEventLog_Ary']     = $WoEventLog_ary; 
       
    //print json_encode($sql);

@@ -1,13 +1,96 @@
-<footer class="container-fluid text-center bg-dark">
+<footer class="container-fluid text-center bg-dark py-2">
     <div class="row">
         <div class="col-md-6 px-1 pt-1">
-             <p>Copyright © 2024 Sky Smart Technology Pvt Ltd. All Rights Reserved</p>
+            <p class="text-light mb-0">Copyright © 2025 Sky Smart Technology Pvt Ltd. All Rights Reserved</p>
         </div>
         <div class="col-md-6 px-1 pt-1">
-             <p> Soft Ver: 4.3</p>
+            <p class="text-light mb-0">Soft Ver: 1.0</p>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-12">
+            <ul class="social-icons list-inline">
+                <li class="list-inline-item">
+                    <a href="#" class="text-light" aria-label="Facebook">
+                        <i class="fab fa-facebook fa-1x"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#" class="text-light" aria-label="Twitter">
+                        <i class="fab fa-twitter fa-1x"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#" class="text-light" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin fa-1x"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="#" class="text-light" aria-label="Instagram">
+                        <i class="fab fa-instagram fa-1x"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </footer>
+
+<!-- Add custom styles for reduced height -->
+<style>
+    footer {
+        background-color: #343a40;
+        color: #fff;
+        font-size: 12px; /* Smaller font size */
+    }
+
+    footer p {
+        font-size: 12px; /* Smaller text size */
+        margin-bottom: 0;
+        color: #ccc;
+    }
+
+    footer .social-icons {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    footer .social-icons li {
+        display: inline-block;
+        margin-right: 10px; /* Reduced spacing between icons */
+    }
+
+    footer .social-icons a {
+        color: #ccc;
+        transition: color 0.3s ease;
+    }
+
+    footer .social-icons a:hover {
+        color: #007bff;
+    }
+
+    footer .social-icons i {
+        transition: transform 0.3s ease;
+    }
+
+    footer .social-icons a:hover i {
+        transform: scale(1.1); /* Slightly enlarged on hover */
+    }
+
+    footer .container-fluid {
+        padding-right: 10px; /* Reduced horizontal padding */
+        padding-left: 10px; /* Reduced horizontal padding */
+    }
+
+    footer .row {
+        align-items: center;
+    }
+</style>
+
+
+<!-- Make sure to include FontAwesome for social icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 
 
 <!-- MQTT -->

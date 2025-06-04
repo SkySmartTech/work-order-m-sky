@@ -42,23 +42,17 @@
               
                 $stmt = $conn->prepare("
                     SELECT DISTINCT
-                        e.ID, e.WorkOrderNo, 
+                        e.ID,  
                         e.WoDepartment, 
                         e.CreatedDateTime, 
                         e.WorkOrderCategory,
                         e.WorkOrderSubCategory, 
-                        e.MachineNo, 
-                        e.CreatedFaultType, 
-                        e.CreatedUser,
                         e.WoDescription, 
-                        e.WoStatus, 
-                        e.WoVerify, 
-                        e.WoReOpen,
-                        CASE WHEN c.WorkOrderNo IS NOT NULL THEN 1 ELSE 0 END AS ChatState
+                        e.WoStatus,
+                        e.WorkOrderNo,
+                        e.Wo_Type
                     FROM 
                         tblwo_event e
-                    LEFT JOIN 
-                        tblwo_chathistory c ON e.WorkOrderNo = c.WorkOrderNo
                     WHERE 
                         e.State < :stat
                         ");
@@ -73,19 +67,16 @@
                 foreach($result as $row)
                 {           
                     $ReturnData_ary[$i][0] = $row['ID'];
-                    $ReturnData_ary[$i][1] = $row['WorkOrderNo'];                     
-                    $ReturnData_ary[$i][2] = $row['WoDepartment'];  
-                    $ReturnData_ary[$i][3] = $row['CreatedDateTime']; 
+                    $ReturnData_ary[$i][1] = $row['WorkOrderNo'];
+                    $ReturnData_ary[$i][2] = $row['WoDepartment'];                     
+                    $ReturnData_ary[$i][3] = $row['CreatedDateTime'];  
                     $ReturnData_ary[$i][4] = $row['WorkOrderCategory']; 
-                    $ReturnData_ary[$i][5] = $row['WorkOrderSubCategory'];                    
-                    $ReturnData_ary[$i][6] = $row['MachineNo']; 
-                    $ReturnData_ary[$i][7] = $row['CreatedFaultType'];  
-                    $ReturnData_ary[$i][8] = $row['CreatedUser'];  
-                    $ReturnData_ary[$i][9] = $row['WoDescription'];                    
-                    $ReturnData_ary[$i][10] = $row['WoStatus'];  
-                    $ReturnData_ary[$i][11] = $row['WoVerify'];  
-                    $ReturnData_ary[$i][12] = $row['WoReOpen']; 
-                    $ReturnData_ary[$i][13] = $row['ChatState']; 
+                    $ReturnData_ary[$i][5] = $row['WorkOrderSubCategory']; 
+                    $ReturnData_ary[$i][6] = $row['WoDescription'];                    
+                    $ReturnData_ary[$i][7] = $row['WoStatus'];
+                    $ReturnData_ary[$i][8] = $row['Wo_Type']; 
+                     
+                    
                     $i++;
                     //echo $i;
                 }    
@@ -110,25 +101,19 @@
                                
                 $stmt = $conn->prepare("
                     SELECT DISTINCT
-                        e.ID, e.WorkOrderNo, 
+                        e.ID,  
                         e.WoDepartment, 
                         e.CreatedDateTime, 
                         e.WorkOrderCategory,
                         e.WorkOrderSubCategory, 
-                        e.MachineNo, 
-                        e.CreatedFaultType, 
-                        e.CreatedUser,
                         e.WoDescription, 
-                        e.WoStatus, 
-                        e.WoVerify, 
-                        e.WoReOpen,
-                        CASE WHEN c.WorkOrderNo IS NOT NULL THEN 1 ELSE 0 END AS ChatState
+                        e.WoStatus,
+                        e.WorkOrderNo,
+                        e.Wo_Type
                     FROM 
                         tblwo_event e
-                    LEFT JOIN 
-                        tblwo_chathistory c ON e.WorkOrderNo = c.WorkOrderNo
                     WHERE 
-                        State<:stat AND $strFilterName1=:fvalue1
+                        e.State < :stat AND $strFilterName1=:fvalue1
                         ");                
                 
                 $stmt->bindParam(':stat', $intWoState); 
@@ -140,19 +125,14 @@
                 foreach($result as $row)
                 {           
                     $ReturnData_ary[$i][0] = $row['ID'];
-                    $ReturnData_ary[$i][1] = $row['WorkOrderNo'];                    
-                    $ReturnData_ary[$i][2] = $row['WoDepartment'];  
-                    $ReturnData_ary[$i][3] = $row['CreatedDateTime']; 
-                    $ReturnData_ary[$i][4] = $row['WorkOrderCategory'];   
-                    $ReturnData_ary[$i][5] = $row['WorkOrderSubCategory'];                    
-                    $ReturnData_ary[$i][6] = $row['MachineNo']; 
-                    $ReturnData_ary[$i][7] = $row['CreatedFaultType'];  
-                    $ReturnData_ary[$i][8] = $row['CreatedUser'];  
-                    $ReturnData_ary[$i][9] = $row['WoDescription'];                    
-                    $ReturnData_ary[$i][10] = $row['WoStatus'];  
-                    $ReturnData_ary[$i][11] = $row['WoVerify'];  
-                    $ReturnData_ary[$i][12] = $row['WoReOpen']; 
-                    $ReturnData_ary[$i][13] = $row['ChatState'];
+                    $ReturnData_ary[$i][1] = $row['WorkOrderNo'];
+                    $ReturnData_ary[$i][2] = $row['WoDepartment'];                     
+                    $ReturnData_ary[$i][3] = $row['CreatedDateTime'];  
+                    $ReturnData_ary[$i][4] = $row['WorkOrderCategory']; 
+                    $ReturnData_ary[$i][5] = $row['WorkOrderSubCategory']; 
+                    $ReturnData_ary[$i][6] = $row['WoDescription'];                    
+                    $ReturnData_ary[$i][7] = $row['WoStatus']; 
+                    $ReturnData_ary[$i][8] = $row['Wo_Type']; 
                     $i++;
                     //echo $i;
                 }
