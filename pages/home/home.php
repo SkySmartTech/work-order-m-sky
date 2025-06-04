@@ -65,8 +65,9 @@
                         </div>
                         
                         <div class="col-lg-3">
-                            <input type="text" id="myCustomSearchBox" class="form-control" placeholder="Search Anything here">
+                            <input type="text" id="myCustomSearchBox" class="form-control" placeholder="Search Anything here" autocomplete="off">
                         </div>
+
                         <div class="col-lg-3">
                             <div class="input-group">
                                 <select class="form-control" onchange="funHome_SelDepartmentFilter()" id="id_funHome_SelDepartmentFilter" style="width:100%">
