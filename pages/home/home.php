@@ -64,9 +64,12 @@
                             <p class="text-center"><strong>List of all work orders</strong></p>                        
                         </div>
                         
-                        <div class="col-lg-3">
-                            <input type="text" id="myCustomSearchBox" class="form-control" placeholder="Search Anything here" autocomplete="off">
-                        </div>
+                        <form autocomplete="off">
+    
+                                <input type="text" id="myCustomSearchBox" name="ignore_autofill" class="form-control" placeholder="Search Anything here" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');">
+                            
+                        </form>
+
 
                         <div class="col-lg-3">
                             <div class="input-group">
